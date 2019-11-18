@@ -17,7 +17,10 @@ def distanceInKmBetweenEarthCoordinates(lat1, lon1, lat2, lon2) :
 def getheading(lat1,lon1,lat2,lon2):
     X = Math.cos(Math.radians(lat2)) * Math.sin(Math.radians(lon2-lon1))
     Y = Math.cos(Math.radians(lat1)) * Math.sin(Math.radians(lat2)) - Math.sin(Math.radians(lat1)) * Math.cos(Math.radians(lat2)) * Math.cos(Math.radians(lon2-lon1))
-    return Math.degrees(Math.atan2(X,Y))
+    h = Math.degrees(Math.atan2(X,Y))
+    if h < 0:
+        h = 360 + h
+    return h
 
 def calc():
     lat1 = float(e1.get())
